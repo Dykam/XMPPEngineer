@@ -83,7 +83,7 @@ namespace XMPPEngineer.Core.Sasl.Mechanisms
         /// <summary>
         /// Private constructor for use with Sasl.SaslFactory.
         /// </summary>
-        private SaslPlain()
+        internal SaslPlain()
         {
             // Nothing to do here.
         }

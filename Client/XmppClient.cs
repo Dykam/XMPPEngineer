@@ -2158,38 +2158,35 @@ namespace XMPPEngineer.Client
         /// </summary>
         private void LoadExtensions()
         {
-            if ((loadExtensions & AvailableExtensions.SoftwareVersion) == AvailableExtensions.SoftwareVersion) version = im.LoadExtension<SoftwareVersion>();            
-            if ((loadExtensions & AvailableExtensions.ServiceDiscovery) == AvailableExtensions.ServiceDiscovery) sdisco = im.LoadExtension<ServiceDiscovery>();
-            if ((loadExtensions & AvailableExtensions.EntityCapabilities) == AvailableExtensions.EntityCapabilities) ecapa = im.LoadExtension<EntityCapabilities>();
-            if ((loadExtensions & AvailableExtensions.Ping) == AvailableExtensions.Ping) ping = im.LoadExtension<Ping>();
-            if ((loadExtensions & AvailableExtensions.Attention) == AvailableExtensions.Attention) attention = im.LoadExtension<Attention>();
-            if ((loadExtensions & AvailableExtensions.EntityTime) == AvailableExtensions.EntityTime) time = im.LoadExtension<EntityTime>();
-            if ((loadExtensions & AvailableExtensions.BlockingCommand) == AvailableExtensions.BlockingCommand) block = im.LoadExtension<BlockingCommand>();
-            if ((loadExtensions & AvailableExtensions.Pep) == AvailableExtensions.Pep) pep = im.LoadExtension<Pep>();
-            if ((loadExtensions & AvailableExtensions.UserTune) == AvailableExtensions.UserTune) userTune = im.LoadExtension<UserTune>();
+            if ((loadExtensions & AvailableExtensions.SoftwareVersion) == AvailableExtensions.SoftwareVersion) version = im.LoadExtension(new SoftwareVersion(im));
+            if ((loadExtensions & AvailableExtensions.ServiceDiscovery) == AvailableExtensions.ServiceDiscovery) sdisco = im.LoadExtension(new ServiceDiscovery(im));
+            if ((loadExtensions & AvailableExtensions.EntityCapabilities) == AvailableExtensions.EntityCapabilities) ecapa = im.LoadExtension(new EntityCapabilities(im));
+            if ((loadExtensions & AvailableExtensions.Ping) == AvailableExtensions.Ping) ping = im.LoadExtension(new Ping(im));
+            if ((loadExtensions & AvailableExtensions.Attention) == AvailableExtensions.Attention) attention = im.LoadExtension(new Attention(im));
+            if ((loadExtensions & AvailableExtensions.EntityTime) == AvailableExtensions.EntityTime) time = im.LoadExtension(new EntityTime(im));
+            if ((loadExtensions & AvailableExtensions.BlockingCommand) == AvailableExtensions.BlockingCommand) block = im.LoadExtension(new BlockingCommand(im));
+            if ((loadExtensions & AvailableExtensions.Pep) == AvailableExtensions.Pep) pep = im.LoadExtension(new Pep(im));
+            if ((loadExtensions & AvailableExtensions.UserTune) == AvailableExtensions.UserTune) userTune = im.LoadExtension(new UserTune(im));
 #if WINDOWSPLATFORM
-			if ((loadExtensions & AvailableExtensions.UserAvatar) == AvailableExtensions.UserAvatar) userAvatar = im.LoadExtension<UserAvatar>();
+            if ((loadExtensions & AvailableExtensions.UserAvatar) == AvailableExtensions.UserAvatar) userAvatar = im.LoadExtension(new UserAvatar(im));
 #endif
-			if ((loadExtensions & AvailableExtensions.UserMood) == AvailableExtensions.UserMood) userMood = im.LoadExtension<UserMood>();
-            if ((loadExtensions & AvailableExtensions.DataForms) == AvailableExtensions.DataForms) dataForms = im.LoadExtension<DataForms>();
-            if ((loadExtensions & AvailableExtensions.FeatureNegotiation) == AvailableExtensions.FeatureNegotiation) featureNegotiation = im.LoadExtension<FeatureNegotiation>();
-            if ((loadExtensions & AvailableExtensions.StreamInitiation) == AvailableExtensions.StreamInitiation) streamInitiation = im.LoadExtension<StreamInitiation>();
-            if ((loadExtensions & AvailableExtensions.SIFileTransfer) == AvailableExtensions.SIFileTransfer) siFileTransfer = im.LoadExtension<SIFileTransfer>();
-            if ((loadExtensions & AvailableExtensions.InBandBytestreams) == AvailableExtensions.InBandBytestreams) inBandBytestreams = im.LoadExtension<InBandBytestreams>();
-            if ((loadExtensions & AvailableExtensions.UserActivity) == AvailableExtensions.UserActivity) userActivity = im.LoadExtension<UserActivity>();
-            if ((loadExtensions & AvailableExtensions.Socks5Bytestreams) == AvailableExtensions.Socks5Bytestreams) socks5Bytestreams = im.LoadExtension<Socks5Bytestreams>();
-            if ((loadExtensions & AvailableExtensions.FileTransfer) == AvailableExtensions.FileTransfer)
-				FileTransferSettings = new FileTransferSettings(socks5Bytestreams,
-                    siFileTransfer);
-            
-            if ((loadExtensions & AvailableExtensions.ServerIpCheck) == AvailableExtensions.ServerIpCheck) serverIpCheck = im.LoadExtension<ServerIpCheck>();
-            if ((loadExtensions & AvailableExtensions.MessageCarbons) == AvailableExtensions.MessageCarbons) messageCarbons = im.LoadExtension<MessageCarbons>();
-            if ((loadExtensions & AvailableExtensions.InBandRegistration) == AvailableExtensions.InBandRegistration) inBandRegistration = im.LoadExtension<InBandRegistration>();
-            if ((loadExtensions & AvailableExtensions.ChatStateNotifications) == AvailableExtensions.ChatStateNotifications) chatStateNotifications = im.LoadExtension<ChatStateNotifications>();
-            if ((loadExtensions & AvailableExtensions.BitsOfBinary) == AvailableExtensions.BitsOfBinary) bitsOfBinary = im.LoadExtension<BitsOfBinary>();
-            if ((loadExtensions & AvailableExtensions.VCardAvatars) == AvailableExtensions.VCardAvatars) vcardAvatars = im.LoadExtension<VCardAvatars>();
-            if ((loadExtensions & AvailableExtensions.CustomIqExtension) == AvailableExtensions.CustomIqExtension) cusiqextension = im.LoadExtension<CustomIqExtension>();
-            if ((loadExtensions & AvailableExtensions.MultiUserChat) == AvailableExtensions.MultiUserChat) groupChat = im.LoadExtension<MultiUserChat>();
+            if ((loadExtensions & AvailableExtensions.UserMood) == AvailableExtensions.UserMood) userMood = im.LoadExtension(new UserMood(im));
+            if ((loadExtensions & AvailableExtensions.DataForms) == AvailableExtensions.DataForms) dataForms = im.LoadExtension(new DataForms(im));
+            if ((loadExtensions & AvailableExtensions.FeatureNegotiation) == AvailableExtensions.FeatureNegotiation) featureNegotiation = im.LoadExtension(new FeatureNegotiation(im));
+            if ((loadExtensions & AvailableExtensions.StreamInitiation) == AvailableExtensions.StreamInitiation) streamInitiation = im.LoadExtension(new StreamInitiation(im));
+            if ((loadExtensions & AvailableExtensions.SIFileTransfer) == AvailableExtensions.SIFileTransfer) siFileTransfer = im.LoadExtension(new SIFileTransfer(im));
+            if ((loadExtensions & AvailableExtensions.InBandBytestreams) == AvailableExtensions.InBandBytestreams) inBandBytestreams = im.LoadExtension(new InBandBytestreams(im));
+            if ((loadExtensions & AvailableExtensions.UserActivity) == AvailableExtensions.UserActivity) userActivity = im.LoadExtension(new UserActivity(im));
+            if ((loadExtensions & AvailableExtensions.Socks5Bytestreams) == AvailableExtensions.Socks5Bytestreams) socks5Bytestreams = im.LoadExtension(new Socks5Bytestreams(im));
+            if ((loadExtensions & AvailableExtensions.FileTransfer) == AvailableExtensions.FileTransfer) FileTransferSettings = new FileTransferSettings(socks5Bytestreams, siFileTransfer);
+            if ((loadExtensions & AvailableExtensions.ServerIpCheck) == AvailableExtensions.ServerIpCheck) serverIpCheck = im.LoadExtension(new ServerIpCheck(im));
+            if ((loadExtensions & AvailableExtensions.MessageCarbons) == AvailableExtensions.MessageCarbons) messageCarbons = im.LoadExtension(new MessageCarbons(im));
+            if ((loadExtensions & AvailableExtensions.InBandRegistration) == AvailableExtensions.InBandRegistration) inBandRegistration = im.LoadExtension(new InBandRegistration(im));
+            if ((loadExtensions & AvailableExtensions.ChatStateNotifications) == AvailableExtensions.ChatStateNotifications) chatStateNotifications = im.LoadExtension(new ChatStateNotifications(im));
+            if ((loadExtensions & AvailableExtensions.BitsOfBinary) == AvailableExtensions.BitsOfBinary) bitsOfBinary = im.LoadExtension(new BitsOfBinary(im));
+            if ((loadExtensions & AvailableExtensions.VCardAvatars) == AvailableExtensions.VCardAvatars) vcardAvatars = im.LoadExtension(new VCardAvatars(im));
+            if ((loadExtensions & AvailableExtensions.CustomIqExtension) == AvailableExtensions.CustomIqExtension) cusiqextension = im.LoadExtension(new CustomIqExtension(im));
+            if ((loadExtensions & AvailableExtensions.MultiUserChat) == AvailableExtensions.MultiUserChat) groupChat = im.LoadExtension(new MultiUserChat(im));
         }
     }
 }

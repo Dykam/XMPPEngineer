@@ -95,7 +95,7 @@ namespace XMPPEngineer.Core.Sasl.Mechanisms
         /// <summary>
         /// Private constructor for use with Sasl.SaslFactory.
         /// </summary>
-        private SaslDigestMd5()
+        internal SaslDigestMd5()
         {
             // Nothing to do here.
         }

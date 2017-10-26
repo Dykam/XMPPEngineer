@@ -30,6 +30,18 @@ namespace XMPPEngineer.Core.Sasl
         public static SaslMechanism Create(string name)
         {
             name.ThrowIfNull("name");
+
+            //Activator.CreateInstance isn't supported on iOS so we provide the default mechanisms hardcoded.
+            switch(name)
+            {
+                case "PLAIN":
+                    return new Mechanisms.SaslPlain();
+                case "DIGEST-MD5":
+                    return new Mechanisms.SaslDigestMd5();
+                case "SCRAM-SHA-1":
+                    return new Mechanisms.SaslScramSha1();
+            }
+
             if (!Mechanisms.ContainsKey(name))
             {
                 throw new SaslException("A Sasl mechanism with the specified name " +
@@ -80,15 +92,6 @@ namespace XMPPEngineer.Core.Sasl
         {
             Mechanisms = new Dictionary<string, Type>(
                 StringComparer.InvariantCultureIgnoreCase);
-
-            // Could be moved to App.config to support SASL "plug-in" mechanisms.
-            var list = new Dictionary<string, Type>() {
-				{ "PLAIN", typeof(Sasl.Mechanisms.SaslPlain) },
-				{ "DIGEST-MD5", typeof(Sasl.Mechanisms.SaslDigestMd5) },
-				{ "SCRAM-SHA-1", typeof(Sasl.Mechanisms.SaslScramSha1) },
-			};
-            foreach (string key in list.Keys)
-                Mechanisms.Add(key, list[key]);
         }
     }
 }

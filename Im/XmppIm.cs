@@ -1350,14 +1350,11 @@ namespace XMPPEngineer.Im
         /// </summary>
         /// <typeparam name="T">The type of the extension to load.</typeparam>
         /// <returns>An instance of the loaded extension.</returns>
-        internal T LoadExtension<T>() where T : XmppExtension
+        internal T LoadExtension<T>(T ext) where T : XmppExtension
         {
-            // Create instance of extension.
-            XmppExtension ext = Activator.CreateInstance(typeof(T), this)
-                as XmppExtension;
             // Add instance to list of loaded extensions.
             extensions.Add(ext);
-            return (T)ext;
+            return ext;
         }
 
         /// <summary>

@@ -108,7 +108,7 @@ namespace XMPPEngineer.Core.Sasl.Mechanisms
         /// <summary>
         /// Private constructor for use with Sasl.SaslFactory.
         /// </summary>
-        private SaslScramSha1()
+        internal SaslScramSha1()
         {
             // Nothing to do here.
         }
