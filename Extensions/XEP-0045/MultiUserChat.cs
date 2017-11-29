@@ -227,7 +227,7 @@ namespace XMPPEngineer.Extensions
         public void LeaveRoom(Jid jid, string nickname)
         {
             Jid groupSpecificJid = new Jid(jid.Domain, jid.Node, nickname);
-            var msg = new Im.Presence(jid, groupSpecificJid, PresenceType.Unavailable);
+            var msg = new Im.Presence(jid, null, PresenceType.Unavailable);
             im.SendPresence(msg);
         }
 
