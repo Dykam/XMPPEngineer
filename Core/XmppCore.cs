@@ -1919,8 +1919,7 @@ namespace XMPPEngineer.Core
                 {
                     // FIXME: What should we do if an exception is thrown in one of the
                     // event handlers?
-                    System.Diagnostics.Debug.WriteLine("Error in XMPP Core: " + e.StackTrace + e.ToString());
-                    //throw e;
+                    System.Diagnostics.Debug.WriteLine("Error in XMPP Core: " + e);
                 }
             }
         }
